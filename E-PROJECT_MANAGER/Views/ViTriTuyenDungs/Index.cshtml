@@ -1,0 +1,108 @@
+﻿@model IEnumerable<E_PROJECT_MANAGER.Models.ViTriTuyenDung>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.PhongBanID)*@
+                STT
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TenViTriTuyenDung)*@
+                Vị Trí Tuyển Dụng
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Title)*@
+                Chi Tiết Công Việc
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Request)*@
+                Hạn Nộp Hồ Sơ
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Number)*@
+                Số lượng
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaiId)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.TrangThaiId)*@
+                Trạng Thái
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.IsDelete)*@
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.NgayXoa)*@
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int stt = 0;
+        }
+@foreach (var item in Model) {
+            stt++; 
+            <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.PhongBanID)*@
+               
+               @stt
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenViTriTuyenDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Request)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiId)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.TrangThaiId)*@
+                    @if (item.TrangThaiId == 1)
+                    {
+                        <span>Đang tìm</span>
+                    }
+                    else if (item.TrangThaiId == 2)
+                    {
+                        <span>Đang phỏng vấn</span>
+                    }
+                    else if (item.TrangThaiId == 3)
+                    {
+                        <span>Đang thử việc</span>
+                    }
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.IsDelete)*@
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.NgayXoa)*@
+            </td>
+            <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

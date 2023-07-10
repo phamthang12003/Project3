@@ -1,0 +1,121 @@
+﻿@model IEnumerable<E_PROJECT_MANAGER.Models.LichPhongVan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+@*<h1>Index</h1>*@
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayPhongVan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianBatDau)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianKetThuc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViTriTuyenDungId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UngVienId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoaiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TrangThaiId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayXoa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayPhongVan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianBatDau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianKetThuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViTriTuyenDungId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UngVienId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThaiId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayXoa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+<div id="calendar"></div>
+
+@section scripts {
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next',
+                    center: 'title',
+                    right: 'dayGridWeek,dayGridDay,dayGridMonth,dayGridYear' // user can switch between the two
+                },
+                events: '/LichPhongVans/FindAllEvent',
+                eventDidMount: function (info) {
+                    // Xử lý dữ liệu sự kiện nhận được từ server và hiển thị lên lịch
+                    var event = info.event;
+                    var start = event.start;
+                    var end = event.end;
+
+                    // Thực hiện các thay đổi hoặc hiển thị dữ liệu theo ý muốn
+                    console.log('Sự kiện:', event);
+                    console.log('Thời gian bắt đầu:', start);
+                    console.log('Thời gian kết thúc:', end);
+                }
+
+            });
+            calendar.render();
+        });
+
+    </script>
+}
