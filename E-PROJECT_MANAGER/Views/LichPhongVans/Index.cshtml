@@ -1,8 +1,10 @@
 ﻿@model IEnumerable<E_PROJECT_MANAGER.Models.LichPhongVan>
 
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    var viTriTuyenDung = ViewBag.ViTriTuyenDung as List<ViTriTuyenDung>;
 }
 
 
@@ -85,37 +87,15 @@
     </tbody>
 </table>*@
 
-<div id="calendar"></div>
+<div class="container">
+    <div id="calendar"></div>
+</div>
+<div class="modal" tabindex="-1" role="dialog">
+    
+</div>
 
 @section scripts {
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
-    <script>
-
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                headerToolbar: {
-                    left: 'prev,next',
-                    center: 'title',
-                    right: 'dayGridWeek,dayGridDay,dayGridMonth,dayGridYear' // user can switch between the two
-                },
-                events: '/LichPhongVans/FindAllEvent',
-                eventDidMount: function (info) {
-                    // Xử lý dữ liệu sự kiện nhận được từ server và hiển thị lên lịch
-                    var event = info.event;
-                    var start = event.start;
-                    var end = event.end;
-
-                    // Thực hiện các thay đổi hoặc hiển thị dữ liệu theo ý muốn
-                    console.log('Sự kiện:', event);
-                    console.log('Thời gian bắt đầu:', start);
-                    console.log('Thời gian kết thúc:', end);
-                }
-
-            });
-            calendar.render();
-        });
-
-    </script>
+    <script src="~/js/lichpv.js"></script>
 }
+

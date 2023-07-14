@@ -8,6 +8,7 @@ namespace E_PROJECT_MANAGER.Repository
 {
     public interface IBaseRepository<T> where T : class
     {
+        public List<T> GetAllItem();
         public DataTableReposneDTO<T> GetAll();
         public DataTableReposneDTO<T> Filter(Expression<Func<T, bool>> filter, string columnName = "Id",
                                                             bool columnAsc = false,
@@ -86,6 +87,11 @@ namespace E_PROJECT_MANAGER.Repository
             var result = new DataTableReposneDTO<T>();
             result.data = _dbSet.AsQueryable().ToList();
             return result;
+        }
+
+        public List<T> GetAllItem()
+        {
+            return _dbSet.ToList();
         }
 
         public T GetById(int id)

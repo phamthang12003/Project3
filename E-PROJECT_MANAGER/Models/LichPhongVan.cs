@@ -4,6 +4,7 @@ namespace E_PROJECT_MANAGER.Models
 {
     public class LichPhongVan : Base
     {
+        public string TenLich { get; set; } = "";
         public DateTime? NgayPhongVan { get; set; }
         public DateTime? ThoiGianBatDau { get; set; }
         public DateTime? ThoiGianKetThuc { get; set; }

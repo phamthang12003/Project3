@@ -24,20 +24,75 @@ namespace E_PROJECT_MANAGER.Controllers
         // GET: LichPhongVans
         public async Task<IActionResult> Index()
         {
-              return _context.LichPhongVans != null ? 
+            var viTriTuyenDung = _context.ViTriTuyenDungs.ToList();
+            ViewBag.ViTriTuyenDung = viTriTuyenDung;
+            return _context.LichPhongVans != null ? 
                           View(await _context.LichPhongVans.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.LichPhongVans'  is null.");
+
+            
         }
 
         public IActionResult FindAllEvent()
         {
             var events = _context.LichPhongVans.Select(l => new
             {
+                id = l.Id,
                 title = string.Format("Lịch phỏng vấn \nngày {0}", l.NgayPhongVan.Value.ToString("dd/MM")),
                 start = l.ThoiGianBatDau,
                 end = l.ThoiGianKetThuc
             }).ToList();
             return Ok(events);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Save(LichPhongVan lpv)
+        {
+            if (lpv != null)
+            {
+                if(lpv.Id == 0)
+                {
+
+                    _context.LichPhongVans.Add(lpv);
+                    _context.SaveChanges();
+                    return Ok("Them Lich thanh cong!");
+                }
+                if(lpv.Id > 0)
+                {
+                    _context.LichPhongVans.Update(lpv);
+                    _context.SaveChanges();
+                    return Ok("Cap nhat thanh cong!");
+
+                }
+            }
+            return BadRequest();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateOrUpdateView(int id)
+        {
+            var lichPhongVan = await _context.LichPhongVans.FindAsync(id);
+            ViewBag.LichPhongVan = lichPhongVan;
+            return PartialView(id);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateEvent(int id, DateTime start, DateTime end)
+        {
+            var lichPhongVan = _context.LichPhongVans.FirstOrDefault(l => l.Id == id);
+            if (lichPhongVan == null)
+            {
+                return NotFound();
+            }
+
+            TimeSpan duration = end - start;
+            lichPhongVan.NgayPhongVan = start.Date;
+            lichPhongVan.ThoiGianBatDau = start;
+            lichPhongVan.ThoiGianKetThuc = start.Add(duration);
+
+            _context.SaveChanges();
+
+            return Ok();
         }
 
         // GET: LichPhongVans/Details/5
@@ -79,6 +134,8 @@ namespace E_PROJECT_MANAGER.Controllers
             }
             return View(lichPhongVan);
         }
+
+        
 
         // GET: LichPhongVans/Edit/5
         public async Task<IActionResult> Edit(int? id)
