@@ -5,6 +5,7 @@
         
         LPV.RegisterEvent();
         LPV.CreateCalendar();
+        
     },
     RegisterEvent: function () {
         $('.save-lich').off('click').on('click', function () {
