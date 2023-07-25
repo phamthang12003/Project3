@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Danh sách trạng thái</h1>
+
+
+<div class="khoi-create">
+    <a href="javascript:void(0)" id="btn-tao-moi" class="btn btn-success">Tạo Mới!</a>
+</div>
+
+<table id="datatable" class="table table-bordered table-hover dataTable dtr-inline">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Tên bảng</th>
+            <th>Tên trạng thái</th>
+            <th>Giá trị</th>
+            <th>CSSClass</th>
+            <th>Sắp xếp</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+
+<div id="container-create-or-update-modal"></div>
+
+@section scripts{
+    <script src="~/js/quanlytrangthai.js"></script>
+}
+

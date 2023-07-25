@@ -3,7 +3,9 @@
     public class ViewDTO<T> where T : class
     {
         public int StatusCode { get; set; } = 500;
+        public List<T> DataRows { get; set; } = new List<T>();
         public string Message { get; set; } = "Không thành công!";
         public List<T> Data { get; set; } = new List<T>();
+      
     }
 }

@@ -1,0 +1,27 @@
+﻿@{
+    var index = (int)ViewBag.Index;
+    var size = (int)ViewBag.Size;
+    var total = (int)ViewBag.Total;
+
+
+    var totalOfPage = total / size;
+    if (total % size > 0)
+    {
+        totalOfPage++;
+    }
+
+    var controller = (string)ViewBag.Controller;
+    var action = (string)ViewBag.Action;
+}
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="@(index <= 1 ? "javascript:void(0)" : Url.Action(action,controller, new {index = index-1, size = size}))">Previous</a></li>
+        @for (int i = 0; i < totalOfPage; i++)
+        {
+                <li class="page-item"><a class="page-link" href="@Url.Action(action,controller, new {index = i+1, size = size})">@(i + 1)</a></li>
+        }
+        <li class="page-item"><a class="page-link" href="@(index >= totalOfPage ? "javascript:void(0)" : Url.Action(action,controller, new {index = index+1, size = size}))">Next</a></li>
+    </ul>
+</nav>

@@ -8,7 +8,6 @@ namespace E_PROJECT_MANAGER.Repository
 {
     public interface IBaseRepository<T> where T : class
     {
-        public List<T> GetAllItem();
         public DataTableReposneDTO<T> GetAll();
         public DataTableReposneDTO<T> Filter(Expression<Func<T, bool>> filter, string columnName = "Id",
                                                             bool columnAsc = false,
@@ -21,6 +20,9 @@ namespace E_PROJECT_MANAGER.Repository
         public ViewDTO<T> Insert(T entity);
         public ViewDTO<T> Update(T entity);
         public ViewDTO<T> Delelte(T entity);
+
+        public ViewDTO<T> Save(int id, T entity);
+
     }
     public class BaseRepository<T> : IBaseRepository<T> where T : Base
     {
@@ -38,6 +40,7 @@ namespace E_PROJECT_MANAGER.Repository
             if (entity != null)
             {
                 _dbSet.Remove(entity);
+                _context.SaveChanges();
                 result.StatusCode = 200;
                 result.Message = "Delete success!";
             }
@@ -89,11 +92,6 @@ namespace E_PROJECT_MANAGER.Repository
             return result;
         }
 
-        public List<T> GetAllItem()
-        {
-            return _dbSet.ToList();
-        }
-
         public T GetById(int id)
         {
             if (id > 0)
@@ -109,7 +107,7 @@ namespace E_PROJECT_MANAGER.Repository
 
         public ViewDTO<T> Insert(T entity)
         {
-             var result = new ViewDTO<T>();
+            var result = new ViewDTO<T>();
             if (entity != null)
             {
                 if (entity.Id <= 0)
@@ -123,6 +121,29 @@ namespace E_PROJECT_MANAGER.Repository
             }
             return result;
         }
+
+        public ViewDTO<T> Save(int id, T entity)
+        {
+            ViewDTO<T> result = new ViewDTO<T>();
+            if (id <= 0)
+            {
+                _dbSet.Add(entity);
+                _context.SaveChanges();
+                result.StatusCode = 200;
+                result.Message = "Them moi thanh cong!";
+            }
+            if (id > 0)
+            {
+                _dbSet.Update(entity);
+                _context.SaveChanges();
+                result.StatusCode = 200;
+                result.Message = "Cap nhat thanh cong!";
+
+            }
+
+            return result;
+        }
+
 
         public ViewDTO<T> Update(T entity)
         {
