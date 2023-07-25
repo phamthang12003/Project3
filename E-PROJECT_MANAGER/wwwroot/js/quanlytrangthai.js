@@ -43,7 +43,7 @@
             },
             "columns": [
                 { "data": "id", "name": "Id" },
-                { "data": "tenBang", "name": "TenBaang" },
+                { "data": "tenBaang", "name": "TenBaang" },
                 { "data": "tenTrangThai", "name": "TenTrangThai" },
                 { "data": "giaTri", "name": "GiaTri" },
                 { "data": "cssClass", "name": "CSSClass" },
