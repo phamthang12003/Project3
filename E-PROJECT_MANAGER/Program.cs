@@ -17,8 +17,11 @@ builder.Services.AddControllersWithViews();
 
 // Add vong doi cho thanh phan repository
 builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-builder.Services.AddScoped<IViTriTuyenDungRepository, ViTriTuyenDungRepository>();
-builder.Services.AddScoped<ILichPhongVanRepository, LichPhongVanRepository>();
+builder.Services.AddScoped<IUngVienRepository, UngVienRepository>();
+builder.Services.AddScoped<IPhongBanRepository, PhongBanRepository>();
+builder.Services.AddScoped<IQuanLyTrangThaiRepository, QuanLyTrangThaiRepository>();
+
+builder.Services.AddScoped<IQuanLyLoaiRepository, QuanLyLoaiRepository>();
 
 
 builder.Services.AddControllersWithViews();

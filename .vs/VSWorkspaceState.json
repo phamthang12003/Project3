@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\E-PROJECT_MANAGER",
+    "\\E-PROJECT_MANAGER\\bin",
+    "\\E-PROJECT_MANAGER\\bin\\Debug",
+    "\\E-PROJECT_MANAGER\\bin\\Release",
+    "\\E-PROJECT_MANAGER\\bin\\Release\\net7.0",
+    "\\E-PROJECT_MANAGER\\Controllers",
+    "\\E-PROJECT_MANAGER\\Data",
+    "\\E-PROJECT_MANAGER\\DataTransferObject",
+    "\\E-PROJECT_MANAGER\\Models"
+  ],
+  "SelectedNode": "\\E-PROJECT_MANAGER.sln",
+  "PreviewInSolutionExplorer": false
+}

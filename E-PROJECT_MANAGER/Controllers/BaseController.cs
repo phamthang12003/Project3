@@ -25,10 +25,7 @@ namespace E_PROJECT_MANAGER.Controllers
             return Ok(result);
         }
 
-        public virtual IActionResult ViewCreateOrUpdate()
-        {
-            return View();
-        }
+        
 
         public IActionResult GetById(int id)
         {

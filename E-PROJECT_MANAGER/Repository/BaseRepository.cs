@@ -8,6 +8,7 @@ namespace E_PROJECT_MANAGER.Repository
 {
     public interface IBaseRepository<T> where T : class
     {
+        ViewDTO<T> GetPagination(int index = 1, int size = 10);
         public List<T> GetAllItem();
         public DataTableReposneDTO<T> GetAll();
         public DataTableReposneDTO<T> Filter(Expression<Func<T, bool>> filter, string columnName = "Id",
@@ -21,6 +22,9 @@ namespace E_PROJECT_MANAGER.Repository
         public ViewDTO<T> Insert(T entity);
         public ViewDTO<T> Update(T entity);
         public ViewDTO<T> Delelte(T entity);
+
+        public ViewDTO<T> Save(int id, T entity);
+
     }
     public class BaseRepository<T> : IBaseRepository<T> where T : Base
     {
@@ -32,12 +36,26 @@ namespace E_PROJECT_MANAGER.Repository
             _context = context;
             _dbSet = _context.Set<T>();
         }
+
+        public ViewDTO<T> GetPagination(int index = 1, int size = 10)
+        {
+            var result = new ViewDTO<T>();
+            // Lấy ra tất cả số lượng của T
+            var totalRows = _dbSet.Count();
+            var dataRows = _dbSet.Skip((index - 1) * size).Take(size);
+            result.totalRows = totalRows;
+            result.DataRows = dataRows.ToList();
+            result.Message = "Lấy dữ liệu phân trang thành công!!";
+            result.StatusCode = 200;
+            return result;
+        }
         public ViewDTO<T> Delelte(T entity)
         {
             var result = new ViewDTO<T>();
             if (entity != null)
             {
                 _dbSet.Remove(entity);
+                _context.SaveChanges();
                 result.StatusCode = 200;
                 result.Message = "Delete success!";
             }
@@ -109,7 +127,7 @@ namespace E_PROJECT_MANAGER.Repository
 
         public ViewDTO<T> Insert(T entity)
         {
-             var result = new ViewDTO<T>();
+            var result = new ViewDTO<T>();
             if (entity != null)
             {
                 if (entity.Id <= 0)
@@ -123,6 +141,29 @@ namespace E_PROJECT_MANAGER.Repository
             }
             return result;
         }
+
+        public ViewDTO<T> Save(int id, T entity)
+        {
+            ViewDTO<T> result = new ViewDTO<T>();
+            if (id <= 0)
+            {
+                _dbSet.Add(entity);
+                _context.SaveChanges();
+                result.StatusCode = 200;
+                result.Message = "Them moi thanh cong!";
+            }
+            if (id > 0)
+            {
+                _dbSet.Update(entity);
+                _context.SaveChanges();
+                result.StatusCode = 200;
+                result.Message = "Cap nhat thanh cong!";
+
+            }
+
+            return result;
+        }
+
 
         public ViewDTO<T> Update(T entity)
         {

@@ -1,0 +1,65 @@
+﻿@model UngVien
+
+<!-- Model Create Or Update -->
+<div class="modal fade bd-example-modal-lg" id="create-or-update-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ứng Viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group row mb-1">
+                        <label for="ten-san-pham" class="col-sm-2 col-form-label">Giới Tính</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="gioi-tinh" placeholder="Giới Tính" value="@Model.GioiTinh">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="mo-ta-san-pham" class="col-sm-2 col-form-label">Tuổi</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="tuoi">@Model.Tuoi</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="thong-so-ky-thuat" class="col-sm-2 col-form-label">Tên Ứng viên</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="ten-ung-vien">@Model.TenUngVien</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="avatar" class="col-sm-2 col-form-label">Địa chỉ</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="dia-chi" value="@Model.DiaChi">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="danh-sach-anh" class="col-sm-2 col-form-label">Vị trí tuyển dụng</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="vi-tri-ung-tuyen" value="@Model.ViTriUngTuyen">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="gia-goc" class="col-sm-2 col-form-label">Kinh nghiệm làm việc</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="kinh-nghiem-lam-viec" value="@Model.KinhNghiemLamViec">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-save-san-pham" sp-id="@Model.Id">Thêm </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,4 @@
-﻿
-@using E_PROJECT_MANAGER.Repository
+﻿@using E_PROJECT_MANAGER.Repository
 @model int
 @inject IViTriTuyenDungRepository viTriTuyenDungRepository
 @inject ILichPhongVanRepository lichPhongVanRepository
@@ -9,6 +8,7 @@
     {
         lpv = lichPhongVanRepository.GetById(Model);
     }
+    //var viTriTuyenDung = viTriTuyenDungRepository.GetAllItem();
     var viTriTuyenDung = viTriTuyenDungRepository.GetAllItem();
 }
 
