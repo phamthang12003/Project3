@@ -1,0 +1,125 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = E_PROJECT_MANAGER
+build_property.RootNamespace = E_PROJECT_MANAGER
+build_property.ProjectDir = C:\Users\ADMIN\Desktop\pj3\Project\E-PROJECT_MANAGER\E-PROJECT_MANAGER\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\ADMIN\Desktop\pj3\Project\E-PROJECT_MANAGER\E-PROJECT_MANAGER
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/AdminPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/HoSo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9Tb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/HoSo/ViewCreateOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9Tb1xWaWV3Q3JlYXRlT3JVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/LichPhongVans/CreateOrUpdateView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaFBob25nVmFuc1xDcmVhdGVPclVwZGF0ZVZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/LichPhongVans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaFBob25nVmFuc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/PhongBan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdCYW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/PhongBan/ViewCreateOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmdCYW5cVmlld0NyZWF0ZU9yVXBkYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/QuanLyLoai/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5TG9haVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/QuanLyLoai/ViewCreateOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5TG9haVxWaWV3Q3JlYXRlT3JVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/QuanLyTrangThai/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5VHJhbmdUaGFpXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/QuanLyTrangThai/ViewCreateOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVhbkx5VHJhbmdUaGFpXFZpZXdDcmVhdGVPclVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/Components/Pagination/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUGFnaW5hdGlvblxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/_LayoutUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/UngVien/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nVmllblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/UngVien/ViewCreateOrUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5nVmllblxWaWV3Q3JlYXRlT3JVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/UserPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/ViTriTuyenDungs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlUcmlUdXllbkR1bmdzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ADMIN/Desktop/pj3/Project/E-PROJECT_MANAGER/E-PROJECT_MANAGER/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-g38i53lvbz
