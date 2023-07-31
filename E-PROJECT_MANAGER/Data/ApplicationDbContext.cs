@@ -18,5 +18,6 @@ namespace E_PROJECT_MANAGER.Data
         public DbSet<UngVien> UngViens { get; set; }
         public DbSet<ViTriTuyenDung> ViTriTuyenDungs { get; set; }
         public DbSet<QuanLyTrangThai> QuanLyTrangThais { get; set; }
+        public DbSet<CustomUser> customUsers { get; set; }
     }
 }

@@ -34,7 +34,6 @@ var SP = {
     Init: function () {
         SP.LoadDataToDataTable();
         SP.RegisterEvent();
-        //SP.Init();
     }, 
     RegisterEvent: function () {
         $('#btn-tao-moi').off('click').on('click', function () {
@@ -67,24 +66,6 @@ var SP = {
         $('.btn-delete-san-pham').off('click').on('click', function () {
             var _id = $(this).attr('sp-id');
             SP.DeleteSanPham(_id);
-        });
-        $('#export-excel').off('click').on('click', function () {
-            var exportActionURL = "/UngVien/ExportToExcel";
-            $.ajax({
-                url: exportActionURL,
-                type: "POST",
-                xhrFields: {
-                    responseType: 'blob'
-                },
-                success: function (data) {
-                    var blob = new Blob([data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-                    var link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = "ungVienExcel.xlsx";
-                    link.click();
-                    window.URL.revokeObjectURL(link.href);
-                }
-            });
         })
     }, // Tat ca cac su kien dang ky vao day
     LoadDataToDataTable: function () {
@@ -170,7 +151,3 @@ var SP = {
 
 
 SP.Init();
-
-
-
-

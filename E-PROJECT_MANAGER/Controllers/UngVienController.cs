@@ -3,11 +3,13 @@ using E_PROJECT_MANAGER.DataTransferObject;
 using E_PROJECT_MANAGER.Models;
 using E_PROJECT_MANAGER.Repository;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 
 namespace E_PROJECT_MANAGER.Controllers
 {
+    [Authorize]
     public class UngVienController : BaseController<UngVien>
     {
         private IUngVienRepository _ungVienRepository;
@@ -21,6 +23,8 @@ namespace E_PROJECT_MANAGER.Controllers
        
 
         [HttpGet]
+        [Authorize(Roles = "ADMIN, LETAN")]
+        
         public IActionResult ViewCreateOrUpdate(int id)
         {
             var model = new UngVien();
@@ -36,6 +40,7 @@ namespace E_PROJECT_MANAGER.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public IActionResult Save(UngVien entity)
         {
             var result = _ungVienRepository.Save(entity.Id.Value, entity);
@@ -43,6 +48,7 @@ namespace E_PROJECT_MANAGER.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "ADMIN")]
         public IActionResult DeleteItem(int id)
         {
             if(id > 0)
@@ -57,35 +63,6 @@ namespace E_PROJECT_MANAGER.Controllers
             return BadRequest();    
             
         }
-
-        //public IActionResult AddFullDetail(RequestUngVienFullDetail request)
-        //{
-        //    if(request != null)
-        //    {
-        //        var uv = new UngVien();
-        //        uv.GioiTinh = request.GioiTinh;
-        //        uv.Tuoi = request.Tuoi;
-        //        uv.Email = request.Email;
-        //        uv.phoneNumber = request.phoneNumber;
-        //        uv.TenUngVien = request.TenUngVien;
-        //        uv.DiaChi = request.DiaChi;
-        //        uv.ViTriUngTuyen = request.ViTriUngTuyen;
-        //        uv.KinhNghiemLamViec = request.KinhNghiemLamViec;
-
-        //        //Not cac thong tin khac
-        //        _context.UngViens.Add(uv);
-        //        _context.SaveChanges();
-        //        var uv_id = uv.Id;
-        //        var hs = new HoSo();
-        //        hs.UngVienId= uv_id;
-        //        hs.LoaiHoSo = "CV";
-
-        //        _context.HoSos.Add(hs);
-        //        _context.SaveChanges();
-        //        return Ok(uv);
-        //    }
-        //    return BadRequest();
-        //}
 
         [HttpPost]
         public IActionResult AddFullDetail(RequestUngVienFullDetail formData)
@@ -117,11 +94,11 @@ namespace E_PROJECT_MANAGER.Controllers
 
         public IActionResult ExportToExcel()
         {
-            var result = _ungVienRepository.GetPagination(1, 100);
+            var result = _ungVienRepository.GetAll();
             if(result != null)
             {
                 var stream = new MemoryStream();
-                var data = result.DataRows;
+                var data = result.data;
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using(var package = new ExcelPackage())
                 {
@@ -161,29 +138,6 @@ namespace E_PROJECT_MANAGER.Controllers
 
             return null;
         }
-        //[HttpPost]
-        //public IActionResult Update(UngVien entity)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var existingEntity = _ungVienRepository.GetById(entity.Id);
-        //        if (existingEntity != null)
-        //        {
-        //            // Update properties of the existingEntity with values from the entity received
-        //            existingEntity.GioiTinh = entity.GioiTinh;
-        //            existingEntity.Tuoi = entity.Tuoi;
-        //            existingEntity.TenUngVien = entity.TenUngVien;
-        //            existingEntity.DiaChi = entity.DiaChi;
-        //            existingEntity.ViTriUngTuyen = entity.ViTriUngTuyen;
-        //            existingEntity.KinhNghiemLamViec = entity.KinhNghiemLamViec;
 
-        //            // ... and so on for other properties
-
-        //            var result = _ungVienRepository.Save(existingEntity);
-        //            return Ok(result);
-        //        }
-        //    }
-        //    return BadRequest();
-        //}
     }
 }
