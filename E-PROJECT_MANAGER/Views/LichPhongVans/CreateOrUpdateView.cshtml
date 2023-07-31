@@ -9,7 +9,7 @@
         lpv = lichPhongVanRepository.GetById(Model);
     }
     //var viTriTuyenDung = viTriTuyenDungRepository.GetAllItem();
-    var viTriTuyenDung = viTriTuyenDungRepository.GetAllItem();
+    var viTriTuyenDung = viTriTuyenDungRepository.GetAll();
 }
 
 <div class="modal-dialog" role="document">
@@ -53,7 +53,7 @@
                     <label for="range-pv" class="col-sm-4 col-form-label">Vị trí tuyển dụng</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="vi-tri-td">
-                            @foreach (var item in viTriTuyenDung)
+                            @foreach (var item in viTriTuyenDung.data)
                             {
                                 <option value="@item.Id">@item.TenViTriTuyenDung</option>
                             }
