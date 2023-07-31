@@ -174,7 +174,7 @@ namespace E_PROJECT_MANAGER.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LichPhongVanExists(lichPhongVan.Id))
+                    if (!LichPhongVanExists(lichPhongVan.Id.Value))
                     {
                         return NotFound();
                     }

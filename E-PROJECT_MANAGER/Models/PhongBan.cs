@@ -2,6 +2,6 @@
 {
     public class PhongBan : Base
     {
-        public string TenPhongBan { get; set; } = "";
+        public string? TenPhongBan { get; set; } = "";
     }
 }

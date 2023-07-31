@@ -17,28 +17,26 @@ namespace EPROJECTMANAGER.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.1")
+                .HasAnnotation("ProductVersion", "7.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.HoSo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("bit");
 
                     b.Property<string>("LinkHoSo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LoaiHoSo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LoaiId")
@@ -50,7 +48,7 @@ namespace EPROJECTMANAGER.Data.Migrations
                     b.Property<int?>("TrangThaiId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UngVienId")
+                    b.Property<int?>("UngVienId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -60,11 +58,11 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.LichPhongVan", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("bit");
@@ -87,10 +85,10 @@ namespace EPROJECTMANAGER.Data.Migrations
                     b.Property<int?>("TrangThaiId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UngVienId")
+                    b.Property<int?>("UngVienId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ViTriTuyenDungId")
+                    b.Property<int?>("ViTriTuyenDungId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -100,11 +98,11 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.NhanVienPhuTrachTuyenDung", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("bit");
@@ -115,13 +113,13 @@ namespace EPROJECTMANAGER.Data.Migrations
                     b.Property<DateTime?>("NgayXoa")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("NhanVienId")
+                    b.Property<int?>("NhanVienId")
                         .HasColumnType("int");
 
                     b.Property<int?>("TrangThaiId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ViTriTuyenDungId")
+                    b.Property<int?>("ViTriTuyenDungId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -131,11 +129,11 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.PhongBan", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("bit");
@@ -147,7 +145,6 @@ namespace EPROJECTMANAGER.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TenPhongBan")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TrangThaiId")
@@ -160,18 +157,16 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.QuanLyLoai", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("CSSCLass")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GiaTri")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsDelete")
@@ -184,11 +179,9 @@ namespace EPROJECTMANAGER.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SapXep")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenLoai")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TrangThaiId")
@@ -201,18 +194,16 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.QuanLyTrangThai", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("CSSClass")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GiaTri")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsDelete")
@@ -225,15 +216,12 @@ namespace EPROJECTMANAGER.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("SapXep")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenBaang")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenTrangThai")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TrangThaiId")
@@ -246,25 +234,25 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.UngVien", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GioiTinh")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("bit");
 
                     b.Property<string>("KinhNghiemLamViec")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("LoaiId")
@@ -274,17 +262,18 @@ namespace EPROJECTMANAGER.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TenUngVien")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TrangThaiId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Tuoi")
+                    b.Property<int?>("Tuoi")
                         .HasColumnType("int");
 
                     b.Property<string>("ViTriUngTuyen")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -294,11 +283,11 @@ namespace EPROJECTMANAGER.Data.Migrations
 
             modelBuilder.Entity("E_PROJECT_MANAGER.Models.ViTriTuyenDung", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
 
                     b.Property<bool?>("IsDelete")
                         .HasColumnType("bit");
@@ -312,19 +301,16 @@ namespace EPROJECTMANAGER.Data.Migrations
                     b.Property<int?>("Number")
                         .HasColumnType("int");
 
-                    b.Property<int>("PhongBanID")
+                    b.Property<int?>("PhongBanID")
                         .HasColumnType("int");
 
                     b.Property<string>("Request")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TenViTriTuyenDung")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TrangThaiId")

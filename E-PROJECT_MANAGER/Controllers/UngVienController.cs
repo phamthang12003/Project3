@@ -1,6 +1,8 @@
 ﻿using E_PROJECT_MANAGER.Data;
+using E_PROJECT_MANAGER.DataTransferObject;
 using E_PROJECT_MANAGER.Models;
 using E_PROJECT_MANAGER.Repository;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 
@@ -36,7 +38,7 @@ namespace E_PROJECT_MANAGER.Controllers
         [HttpPost]
         public IActionResult Save(UngVien entity)
         {
-            var result = _ungVienRepository.Save(entity.Id, entity);
+            var result = _ungVienRepository.Save(entity.Id.Value, entity);
             return Ok(result);
         }
 
@@ -54,6 +56,63 @@ namespace E_PROJECT_MANAGER.Controllers
             }
             return BadRequest();    
             
+        }
+
+        //public IActionResult AddFullDetail(RequestUngVienFullDetail request)
+        //{
+        //    if(request != null)
+        //    {
+        //        var uv = new UngVien();
+        //        uv.GioiTinh = request.GioiTinh;
+        //        uv.Tuoi = request.Tuoi;
+        //        uv.Email = request.Email;
+        //        uv.phoneNumber = request.phoneNumber;
+        //        uv.TenUngVien = request.TenUngVien;
+        //        uv.DiaChi = request.DiaChi;
+        //        uv.ViTriUngTuyen = request.ViTriUngTuyen;
+        //        uv.KinhNghiemLamViec = request.KinhNghiemLamViec;
+
+        //        //Not cac thong tin khac
+        //        _context.UngViens.Add(uv);
+        //        _context.SaveChanges();
+        //        var uv_id = uv.Id;
+        //        var hs = new HoSo();
+        //        hs.UngVienId= uv_id;
+        //        hs.LoaiHoSo = "CV";
+
+        //        _context.HoSos.Add(hs);
+        //        _context.SaveChanges();
+        //        return Ok(uv);
+        //    }
+        //    return BadRequest();
+        //}
+
+        [HttpPost]
+        public IActionResult AddFullDetail(RequestUngVienFullDetail formData)
+        {
+            if (formData != null)
+            {
+                var ungVien = new UngVien()
+                {
+                    TenUngVien = formData.fullName,
+                    Email = formData.email,
+                    phoneNumber = formData.phoneNumber,
+                    ViTriUngTuyen = formData.jobSector,
+                    KinhNghiemLamViec = formData.commentMessage,
+                };
+                _context.UngViens.Add(ungVien);
+                _context.SaveChanges();
+
+                var hs = new HoSo();
+                hs.UngVienId = formData.Id;
+                hs.LoaiHoSo = "CV";
+                hs.LinkHoSo = formData.urlFile;
+                _context.HoSos.Add(hs);
+                _context.SaveChanges();
+
+                return Ok(formData);
+            }
+            return BadRequest();
         }
 
         public IActionResult ExportToExcel()

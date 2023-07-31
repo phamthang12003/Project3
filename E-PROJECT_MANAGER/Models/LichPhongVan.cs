@@ -7,8 +7,8 @@ namespace E_PROJECT_MANAGER.Models
         public DateTime? NgayPhongVan { get; set; }
         public DateTime? ThoiGianBatDau { get; set; }
         public DateTime? ThoiGianKetThuc { get; set; }
-        public int ViTriTuyenDungId { get; set; }
-        public int UngVienId { get; set; }
+        public int? ViTriTuyenDungId { get; set; }
+        public int? UngVienId { get; set; }
 
         //[ForeignKey("UngVienId")]
         //public virtual UngVien GetUngVien { get; set; }

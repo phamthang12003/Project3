@@ -20,9 +20,8 @@ builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 builder.Services.AddScoped<IUngVienRepository, UngVienRepository>();
 builder.Services.AddScoped<IPhongBanRepository, PhongBanRepository>();
 builder.Services.AddScoped<IQuanLyTrangThaiRepository, QuanLyTrangThaiRepository>();
-
 builder.Services.AddScoped<IQuanLyLoaiRepository, QuanLyLoaiRepository>();
-
+builder.Services.AddScoped<IHoSoRepository, HoSoRepository>();
 
 builder.Services.AddControllersWithViews();
 

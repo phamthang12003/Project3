@@ -33,7 +33,7 @@ namespace E_PROJECT_MANAGER.Controllers
         [HttpPost]
         public IActionResult Save(QuanLyLoai entity)
         {
-            var result = _quanLyLoaiRepository.Save(entity.Id, entity);
+            var result = _quanLyLoaiRepository.Save(entity.Id.Value, entity);
             return Ok(result);
         }
 
@@ -57,7 +57,7 @@ namespace E_PROJECT_MANAGER.Controllers
         {
             if (ModelState.IsValid)
             {
-                var existingEntity = _quanLyLoaiRepository.GetById(entity.Id);
+                var existingEntity = _quanLyLoaiRepository.GetById(entity.Id.Value);
                 if (existingEntity != null)
                 {
                     // Update properties of the existingEntity with values from the entity received
@@ -72,7 +72,7 @@ namespace E_PROJECT_MANAGER.Controllers
 
                     // ... and so on for other properties
 
-                    var result = _quanLyLoaiRepository.Save(existingEntity.Id, existingEntity);
+                    var result = _quanLyLoaiRepository.Save(existingEntity.Id.Value, existingEntity);
                     return Ok(result);
                 }
             }

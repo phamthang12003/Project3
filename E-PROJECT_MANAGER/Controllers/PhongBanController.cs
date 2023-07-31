@@ -36,7 +36,7 @@ namespace E_PROJECT_MANAGER.Controllers
         [HttpPost]
         public IActionResult Save(PhongBan entity)
         {
-            var result = _phongBanRepository.Save(entity.Id, entity);
+            var result = _phongBanRepository.Save(entity.Id.Value, entity);
             return Ok(result);
         }
 
