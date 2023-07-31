@@ -8,8 +8,6 @@ namespace E_PROJECT_MANAGER.Repository
 {
     public interface IBaseRepository<T> where T : class
     {
-        ViewDTO<T> GetPagination(int index = 1, int size = 10);
-        public List<T> GetAllItem();
         public DataTableReposneDTO<T> GetAll();
         public DataTableReposneDTO<T> Filter(Expression<Func<T, bool>> filter, string columnName = "Id",
                                                             bool columnAsc = false,
@@ -35,19 +33,6 @@ namespace E_PROJECT_MANAGER.Repository
         {
             _context = context;
             _dbSet = _context.Set<T>();
-        }
-
-        public ViewDTO<T> GetPagination(int index = 1, int size = 10)
-        {
-            var result = new ViewDTO<T>();
-            // Lấy ra tất cả số lượng của T
-            var totalRows = _dbSet.Count();
-            var dataRows = _dbSet.Skip((index - 1) * size).Take(size);
-            result.totalRows = totalRows;
-            result.DataRows = dataRows.ToList();
-            result.Message = "Lấy dữ liệu phân trang thành công!!";
-            result.StatusCode = 200;
-            return result;
         }
         public ViewDTO<T> Delelte(T entity)
         {
@@ -105,11 +90,6 @@ namespace E_PROJECT_MANAGER.Repository
             var result = new DataTableReposneDTO<T>();
             result.data = _dbSet.AsQueryable().ToList();
             return result;
-        }
-
-        public List<T> GetAllItem()
-        {
-            return _dbSet.ToList();
         }
 
         public T GetById(int id)

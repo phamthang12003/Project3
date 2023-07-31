@@ -31,7 +31,7 @@ var SP = {
         $('#datatable').DataTable({
             "serverSide": true,
             "ajax": {
-                "url": "/PhongBan/ResposeDataTables",
+                "url": "/PhongBan/Filter",
                 "type": "POST"
             },
             "columns": [
