@@ -63,8 +63,52 @@ namespace E_PROJECT_MANAGER.Controllers
             return BadRequest();    
             
         }
+        public IActionResult ResposeDataTables(DataTableAjaxPostModel postModel)
+        {
+            //Kiem tra search
+            var search = "";
+            if (postModel.search != null)
+            {
+                search = postModel.search.value;
+            }
 
-        [HttpPost]
+            //Kiem tra sap xep
+            var columnName = "Id";
+            var columnAsc = false;
+
+            if (postModel.order != null)
+            {
+                columnName = postModel.columns[postModel.order[0].column].name;
+                if (postModel.order[0].dir.Equals("asc"))
+                {
+                    columnAsc = true;
+                }
+                if (postModel.order[0].dir.Equals("desc"))
+                {
+                    columnAsc = false;
+                }
+            }
+            var start = postModel.start;
+            var length = postModel.length;
+
+            //Goi vao Repository va dien cac tham so phu hop
+            var result = _ungVienRepository.Filter(
+                r => (string.IsNullOrEmpty(search)) || (
+                    (!string.IsNullOrEmpty(search)) && (
+                        r.TenUngVien.ToLower().Contains(search.ToLower())
+                    )
+                ),
+                columnName,
+                columnAsc,
+                start,
+                length,
+                postModel.draw
+                );
+            return Ok(result);
+        }
+
+
+			[HttpPost]
         public IActionResult AddFullDetail(RequestUngVienFullDetail formData)
         {
             if (formData != null)
