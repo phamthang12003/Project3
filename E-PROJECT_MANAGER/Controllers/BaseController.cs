@@ -1,19 +1,48 @@
 ﻿using E_PROJECT_MANAGER.Data;
+using E_PROJECT_MANAGER.Models;
 using E_PROJECT_MANAGER.Repository;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_PROJECT_MANAGER.Controllers
 {
     public class BaseController<T> : Controller where T : class
     {
-        private IBaseRepository<T> _baseRepository;
+        protected IBaseRepository<T> _baseRepository;
         protected ApplicationDbContext _context;
+
+        protected readonly IHttpContextAccessor _contextAccessor;
+        protected readonly UserManager<CustomUser> _userManager;
+        protected readonly RoleManager<IdentityRole> _roleManager;
+
+        public BaseController(IHttpContextAccessor contextAccessor,UserManager<CustomUser> userManager, RoleManager<IdentityRole> roleManager)
+        {   
+            _contextAccessor = contextAccessor;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+
+        protected async Task<CustomUser> GetCurrentUserAsyc()   
+        {
+            var currentUser = _contextAccessor.HttpContext.User;
+            var ht = "";
+            var userId = "";
+            if (currentUser.Identity.IsAuthenticated)
+            {
+                ht = currentUser.Identity.Name; //lấy ra user
+                var userTimThay = await _userManager.FindByNameAsync(currentUser.Identity.Name);
+                return userTimThay;
+            }
+            return null;
+            //ViewBag.Ht = ht;
+            //return View();
+        }
         public BaseController(IBaseRepository<T> baseRepository, ApplicationDbContext context)
         {
             _baseRepository = baseRepository;
             _context = context;
         }
-        public IActionResult Index()
+        public virtual IActionResult Index()
         {
             return View();
         }

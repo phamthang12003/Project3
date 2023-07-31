@@ -55,23 +55,5 @@ namespace E_PROJECT_MANAGER.Controllers
             return BadRequest();
 
         }
-        //[HttpPost]
-        //public IActionResult Update(PhongBan entity)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var existingEntity = _phongBanRepository.GetById(entity.Id);
-        //        if (existingEntity != null)
-        //        {
-        //            // Update properties of the existingEntity with values from the entity received
-        //            existingEntity.TenPhongBan = entity.TenPhongBan;
-        //            // ... and so on for other properties
-
-        //            var result = _phongBanRepository.Save(existingEntity);
-        //            return Ok(result);
-        //        }
-        //    }
-        //    return BadRequest();
-        //}
     }
 }

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Downloads\\Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj": {}
+    "C:\\Users\\Nitro 5\\OneDrive\\Desktop\\code\\project3\\Project_bar\\E-Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj": {}
   },
   "projects": {
-    "D:\\Downloads\\Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj": {
+    "C:\\Users\\Nitro 5\\OneDrive\\Desktop\\code\\project3\\Project_bar\\E-Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Downloads\\Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj",
+        "projectUniqueName": "C:\\Users\\Nitro 5\\OneDrive\\Desktop\\code\\project3\\Project_bar\\E-Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj",
         "projectName": "E-PROJECT_MANAGER",
-        "projectPath": "D:\\Downloads\\Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "D:\\Downloads\\Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER\\obj\\",
+        "projectPath": "C:\\Users\\Nitro 5\\OneDrive\\Desktop\\code\\project3\\Project_bar\\E-Project\\E-PROJECT_MANAGER\\E-PROJECT_MANAGER.csproj",
+        "packagesPath": "C:\\Users\\Nitro 5\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nitro 5\\OneDrive\\Desktop\\code\\project3\\Project_bar\\E-Project\\E-PROJECT_MANAGER\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Nitro 5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,21 +45,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "EPPlus": {
-              "target": "Package",
-              "version": "[6.2.7, )"
-            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.1, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.1, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[7.0.1, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -90,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
