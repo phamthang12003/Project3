@@ -47,7 +47,7 @@
 
             success: function (response) {
                 // Xử lý sau khi dữ liệu được lưu vào bảng UngVien
-                aler('Data saved successfully!');
+                alert('Data saved successfully!');
                 // Reset form
                 $('#your-form-id')[0].reset();
             },
