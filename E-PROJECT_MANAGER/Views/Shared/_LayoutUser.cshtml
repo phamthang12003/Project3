@@ -123,10 +123,11 @@
 
 
                                         <li class="active">
-                                            <a href="~/UserLTE/index.html">Homepage</a>
+                                            @*<a href="~/UserLTE/index.html">Homepage</a>*@
+                                            <a href="@Url.Action("Index", "UserPage")">Home Page</a>
                                             <ul>
                                                 <li>
-                                                    <a href="~/UserLTE/index.html">Homepage</a>
+                                                    <a href="@Url.Action("Index", "UserPage")">Homepage</a>
                                                 </li>
                                                 <li>
                                                     <a href="~/UserLTE/index_static.html">Static Page</a>
@@ -139,7 +140,7 @@
                                         </li>
 
 
-                                        <li>
+                                        @*<li>
                                             <a href="~/UserLTE/about.html">Pages</a>
                                             <ul>
                                                 <li>
@@ -269,10 +270,10 @@
                                                 </li>
 
                                             </ul>
-                                        </li>
+                                        </li>*@
                                         <!-- eof pages -->
 
-                                        <li>
+                                        @*<li>
                                             <a href="~/UserLTE/about.html">About</a>
                                         </li>
 
@@ -284,9 +285,9 @@
                                         <li>
                                             <a href="~/UserLTE/candidates.html">Candidates</a>
 
-                                        </li>
+                                        </li>*@
 
-                                        <!-- blog -->
+                                        @*<!-- blog -->
                                         <li>
                                             <a href="~/UserLTE/blog-left.html">Blog</a>
                                             <ul>
@@ -332,187 +333,16 @@
 
                                             </ul>
                                         </li>
-                                        <!-- eof blog -->
+                                        <!-- eof blog -->*@
 
-                                        <li>
-                                            <a href="~/UserLTE/#">Features</a>
-                                            <div class="mega-menu">
-                                                <ul class="mega-menu-row">
-                                                    <li class="mega-menu-col">
-                                                        <a href="~/UserLTE/#">Headers</a>
-                                                        <ul>
-                                                            <li>
-                                                                <a href="~/UserLTE/header1.html">Header Type 1</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header2.html">Header Type 2</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header3.html">Header Type 3</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header4.html">Header Type 4</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header5.html">Header Type 5</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header6.html">Header Type 6</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="mega-menu-col">
-                                                        <a href="~/UserLTE/#">Side Menus</a>
-                                                        <ul>
-                                                            <li>
-                                                                <a href="~/UserLTE/header-side.html">Push Left</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header-side-right.html">Push Right</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header-side-slide.html">Slide Left</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header-side-slide-right.html">Slide Right</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header-side-sticked.html">Sticked Left</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/header-side-sticked-right.html">Sticked Right</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="mega-menu-col">
-                                                        <a href="~/UserLTE/title1.html">Title Sections</a>
-                                                        <ul>
-                                                            <li>
-                                                                <a href="~/UserLTE/title1.html">Title section 1</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/title2.html">Title section 2</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/title3.html">Title section 3</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/title4.html">Title section 4</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/title5.html">Title section 5</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/title6.html">Title section 6</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="mega-menu-col">
-                                                        <a href="~/UserLTE/footer1.html#footer">Footers</a>
-                                                        <ul>
-                                                            <li>
-                                                                <a href="~/UserLTE/footer1.html#footer">Footer Type 1</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/footer2.html#footer">Footer Type 2</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/footer3.html#footer">Footer Type 3</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/footer4.html#footer">Footer Type 4</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/footer5.html#footer">Footer Type 5</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/footer6.html#footer">Footer Type 6</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="mega-menu-col">
-                                                        <a href="~/UserLTE/copyright1.html#copyright">Copyright</a>
-
-                                                        <ul>
-                                                            <li>
-                                                                <a href="~/UserLTE/copyright1.html#copyright">Copyright 1</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/copyright2.html#copyright">Copyright 2</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/copyright3.html#copyright">Copyright 3</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/copyright4.html#copyright">Copyright 4</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/copyright5.html#copyright">Copyright 5</a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="~/UserLTE/copyright6.html#copyright">Copyright 6</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </li>
+                                        
                                         <!-- eof features -->
                                         <!-- gallery -->
-                                        <li>
-                                            <a href="~/UserLTE/gallery-regular.html">Gallery</a>
-                                            <ul>
-
-                                                <li>
-                                                    <a href="~/UserLTE/gallery-regular.html">Gallery Regular</a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="~/UserLTE/gallery-regular-2-cols.html">2 columns</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="~/UserLTE/gallery-regular-3-cols.html">3 columns</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="~/UserLTE/gallery-regular-4-cols-fullwidth.html">4 columns fullwidth</a>
-                                                        </li>
-
-                                                    </ul>
-                                                </li>
-
-
-                                                <li>
-                                                    <a href="~/UserLTE/gallery-excerpt.html">Gallery Extended</a>
-                                                    <ul>
-                                                        <li>
-                                                            <a href="~/UserLTE/gallery-excerpt-2-cols.html">2 columns</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="~/UserLTE/gallery-excerpt-3-cols.html">3 column</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="~/UserLTE/gallery-excerpt-4-cols-fullwidth.html">4 columns fullwdith</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-
-
-                                                <li>
-                                                    <a href="~/UserLTE/gallery-tiled.html">Tiled Gallery</a>
-                                                </li>
-
-
-                                                <li>
-                                                    <a href="~/UserLTE/gallery-single.html">Gallery Item</a>
-                                                </li>
-
-                                            </ul>
-                                        </li>
-                                        <!-- eof Gallery -->
+                                        
                                         <!-- contacts -->
                                         <li>
-                                            <a href="~/UserLTE/contact.html">Contacts</a>
-                                            <ul>
+                                            <a href="@Url.Action("Contact", "ContactPage")">Contact</a>
+                                            @*<ul>
                                                 <li>
                                                     <a href="~/UserLTE/contact.html">Contact 1</a>
                                                 </li>
@@ -525,7 +355,7 @@
                                                 <li>
                                                     <a href="~/UserLTE/contact4.html">Contact 4</a>
                                                 </li>
-                                            </ul>
+                                            </ul>*@
                                         </li>
                                         <!-- eof contacts -->
 
