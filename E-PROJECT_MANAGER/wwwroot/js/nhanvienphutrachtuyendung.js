@@ -1,8 +1,9 @@
-﻿var SP = {
+﻿
+var SP = {
+    
     Init: function () {
         SP.LoadDataToDataTable();
         SP.RegisterEvent();
-        //SP.Init();
     },
     RegisterEvent: function () {
         $('#btn-tao-moi').off('click').on('click', function () {
@@ -13,40 +14,36 @@
             SP.CreateOrUpdatePatialView(sp_id);
         })
         $('#btn-save-san-pham').off('click').on('click', function () {
-            var ungVienId = $('#ung-vien-id').val();
-            var loaiHoSo = $('#loai-ho-so').val();
-            var linkHoSo = $('#link-ho-so').val();
-            var UngVienId = $('#UngVienId').val();
+            var nhanVienId = $('#NhanVienId').val();
+            var ViTriTuyenDungId = $('#ViTriTuyenDungId').val();
             var id = $(this).attr('sp-id');
             //Xay dung Oject San pham
-            var hoso = {
-                /*UngVienID: ungVienId,*/
-                LoaiHoSo: loaiHoSo,
-                LinkHoSo: linkHoSo,
-                UngVienId: parseInt(UngVienId),
+            var sanPham = {
+                NhanVienId: nhanVienId,
+                ViTriTuyenDungId: parseInt(ViTriTuyenDungId),
                 Id: id
             }
-            SP.SaveSanPham(hoso);
+            SP.SaveSanPham(sanPham);
         })
         $('.btn-delete-san-pham').off('click').on('click', function () {
             var _id = $(this).attr('sp-id');
             SP.DeleteSanPham(_id);
         });
-       
-    }, 
+
+    }, // Tat ca cac su kien dang ky vao day
     LoadDataToDataTable: function () {
         $('#datatable').DataTable({
             "serverSide": true,
             "ajax": {
-                "url": "/HoSo/ResposeDataTables",
+                "url": "/NhanVienPhuTrachTuyenDung/ResposeDataTables",
                 "type": "POST"
             },
             "columns": [
-                { "data": "id", "name": "Id" },
-                /*{ "data": "ungVienId", "name": "UngVienId" },*/
-                { "data": "loaiHoSo", "name": "LoaiHoSo" },
-                { "data": "linkHoSo", "name": "LinkHoSo" },
-                { "data": "getUngVien.tenUngVien", "name": "UngVien" },
+                { "data": "id", "name": "Id" }, 
+                { "data": "nhanVienId", "name": "NhanVienId" },
+                { "data": "getViTriTuyenDung.tenViTriTuyenDung", "name": "ViTriTuyenDung" },
+                
+                
                 {
                     "data": "id", "render": function (data) {
                         return `
@@ -54,7 +51,6 @@
                                 
                                 <a href="javascript:void(0)" sp-id=${data} class="btn btn-warning btn-update-san-pham">Cập nhật</a>
                                 <a href="javascript:void(0)" sp-id=${data} class="btn btn-danger btn-delete-san-pham">Xóa</a>
-
                             </div>
                         `;
                     }
@@ -76,14 +72,14 @@
         SP.RegisterEvent();
     },
     CreateOrUpdatePatialView: function (id) {
-        $.get('/HoSo/ViewCreateOrUpdate?id=' + id, function (response) {
+        $.get('/NhanVienPhuTrachTuyenDung/ViewCreateOrUpdate?id=' + id, function (response) {
             $('#container-create-or-update-modal').html('').html(response);
             $('#create-or-update-modal').modal('show');
             SP.RegisterEvent();
         })
     },
-    SaveSanPham: function (hoso) {
-        $.post('/HoSo/Save', hoso, function (response) {
+    SaveSanPham: function (sanPham) {
+        $.post('/NhanVienPhuTrachTuyenDung/Save', sanPham, function (response) {
             $('#create-or-update-modal').modal('hide');
             console.log(response);
             alert(response.message);
@@ -93,7 +89,7 @@
     },
     DeleteSanPham: function (id) {
         alert(id)
-        $.get('/HoSo/DeleteItem?id=' + id, function (response) {
+        $.get('/NhanVienPhuTrachTuyenDung/DeleteItem?id=' + id, function (response) {
             alert(response.message);
             SP.ReloadDataTable();
             SP.RegisterEvent();
@@ -104,9 +100,5 @@
         table.ajax.reload(null, false);
         SP.RegisterEvent();
     }
-
-
 }
-
-
 SP.Init();

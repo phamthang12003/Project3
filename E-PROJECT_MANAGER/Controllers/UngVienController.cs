@@ -43,7 +43,7 @@ namespace E_PROJECT_MANAGER.Controllers
         [Authorize(Roles = "ADMIN")]
         public IActionResult Save(UngVien entity)
         {
-            var result = _ungVienRepository.Save(entity.Id.Value, entity);
+            var result = _ungVienRepository.Save(entity.Id, entity);
             return Ok(result);
         }
 

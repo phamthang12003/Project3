@@ -10,7 +10,7 @@ namespace E_PROJECT_MANAGER.Models
         public string?  Request { get; set; }
         public int? Number { get; set; }
 
-        //[ForeignKey("PhongBanID")]
-        //public virtual PhongBan GetPhongBan { get; set; }
+        [ForeignKey("PhongBanID")]
+        public virtual PhongBan? GetPhongBan { get; set; }
     }
 }

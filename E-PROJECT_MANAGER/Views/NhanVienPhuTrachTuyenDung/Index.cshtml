@@ -1,34 +1,31 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>Danh sach ho so</h1>
+<h1>Danh sách nhân viên phụ trách tuyển dụng</h1>
 
 <div class="khoi-create">
     <a href="javascript:void(0)" id="btn-tao-moi" class="btn btn-success">Tạo Mới!</a>
 </div>
 
 
-
 <table id="datatable" class="table table-bordered table-hover dataTable dtr-inline" style="width: 100%">
     <thead>
         <tr>
-            <th>Id</th>
-            
-            @*<th>Ung Vien ID</th>*@
-            <th>Loai ho so</th>
-            <th>Link ho so</th>
-            <th>Ứng Viên</th>
+            <th>STT</th>
+            <th>Nhân Viên</th>
+            <th>Vị trí tuyển dụng</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
     </tbody>
 </table>
-<div id="container-create-or-update-modal"></div>
 
+<div id="container-create-or-update-modal"></div>
 @section scripts{
 
-    <script src="~/js/hoso.js"></script>
+    <script src="~/js/nhanvienphutrachtuyendung.js"></script>
 }

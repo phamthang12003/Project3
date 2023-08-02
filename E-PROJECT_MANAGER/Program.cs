@@ -29,6 +29,8 @@ builder.Services.AddScoped<IPhongBanRepository, PhongBanRepository>();
 builder.Services.AddScoped<IQuanLyTrangThaiRepository, QuanLyTrangThaiRepository>();
 builder.Services.AddScoped<IQuanLyLoaiRepository, QuanLyLoaiRepository>();
 builder.Services.AddScoped<IHoSoRepository, HoSoRepository>();
+builder.Services.AddScoped<IViTriTuyenDungRepository, ViTriTuyenDungRepository>();
+builder.Services.AddScoped<INhanVienPhuTrachTuyenDungRepository, NhanVienPhuTrachTuyenDungRespository>();
 
 builder.Services.AddControllersWithViews();
 
@@ -59,7 +61,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index1}/{id?}");
+    pattern: "{controller=UserPage}/{action=Index}");
 app.MapRazorPages();
 
 
