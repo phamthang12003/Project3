@@ -108,7 +108,7 @@ namespace E_PROJECT_MANAGER.Controllers
         }
 
 
-			[HttpPost]
+		[HttpPost]
         public IActionResult AddFullDetail(RequestUngVienFullDetail formData)
         {
             if (formData != null)
@@ -120,6 +120,9 @@ namespace E_PROJECT_MANAGER.Controllers
                     phoneNumber = formData.phoneNumber,
                     ViTriUngTuyen = formData.jobSector,
                     KinhNghiemLamViec = formData.commentMessage,
+                    Tuoi = formData.Age,
+                    GioiTinh = formData.Sex,
+                    DiaChi = formData.Address
                 };
                 _context.UngViens.Add(ungVien);
                 _context.SaveChanges();

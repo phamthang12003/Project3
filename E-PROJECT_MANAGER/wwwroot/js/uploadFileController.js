@@ -17,7 +17,11 @@
                 email: $('#email').val(),
                 jobSector: $('#jobSector').val(),
                 urlFile: $('#result-upload').val(), // Điền giá trị tương ứng nếu có trường urlFile trong form
-                commentMessage: $('#message').val()
+                commentMessage: $('#message').val(),
+                age: $('#age').val(),
+                sex: $('#sex').val(),
+                address: $('#address').val(),
+                
             };
             console.log(params);
             
@@ -49,7 +53,7 @@
                 // Xử lý sau khi dữ liệu được lưu vào bảng UngVien
                 alert('Data saved successfully!');
                 // Reset form
-                $('#your-form-id')[0].reset();
+                /*$('#your-form-id').reset();*/
             },
             error: function () {
                 alert('Error occurred while saving data.');

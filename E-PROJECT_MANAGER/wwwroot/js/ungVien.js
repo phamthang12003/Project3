@@ -45,7 +45,7 @@ var SP = {
             SP.CreateOrUpdatePatialView(sp_id);
         })
         $('#btn-save-san-pham').off('click').on('click', function () {
-            var gioiTinh = $('#gioi-tinh').val();
+            //var gioiTinh = $('#gioi-tinh').val();
             var tuoi = $('#tuoi').val();
             var tenUngVien = $('#ten-ung-vien').val();
             var diaChi = $('#dia-chi').val();
@@ -54,7 +54,7 @@ var SP = {
             var id = $(this).attr('sp-id');
             //Xay dung Oject San pham
             var sanPham = {
-                GioiTinh: gioiTinh,
+                //GioiTinh: gioiTinh,
                 Tuoi: tuoi,
                 TenUngVien: tenUngVien,
                 DiaChi: diaChi,
@@ -96,7 +96,7 @@ var SP = {
             },
             "columns": [
                 { "data": "id", "name": "Id" },
-                { "data": "gioiTinh", "name": "GioiTinh" },
+                //{ "data": "gioiTinh", "name": "GioiTinh" },
                 { "data": "tuoi", "name": "Tuoi" },
                 { "data": "tenUngVien", "name": "TenUngVien"},
                 {

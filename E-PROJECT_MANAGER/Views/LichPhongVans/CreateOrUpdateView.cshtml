@@ -1,5 +1,5 @@
 ﻿@using E_PROJECT_MANAGER.Repository
-@model int
+@model int;
 @inject IViTriTuyenDungRepository viTriTuyenDungRepository
 @inject ILichPhongVanRepository lichPhongVanRepository
 @{
@@ -33,26 +33,26 @@
                 <div class="form-group row">
                     <label for="ten-lich" class="col-sm-4 col-form-label">Tên lịch PV</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="ten-lich" placeholder="Tên lịch PV" value="@ViewBag.LichPhongVan?.TenLich">
+                        <input type="text" class="form-control" id="ten-lich" placeholder="Tên lịch PV" value="@ViewBag.TenLich">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="ngay-pv" class="col-sm-4 col-form-label">Ngày phỏng vấn</label>
                     <div class="col-sm-8">
-                        <input type="text" name="ngay-pv" id="ngay-pv" value="" />
+                        <input type="text" name="ngay-pv" id="ngay-pv" value="@lpv.NgayPhongVan.Value.ToString("yyyy-MM-dd")" />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="range-pv" class="col-sm-4 col-form-label">Thời gian</label>
                     <div class="col-sm-8">
-                        <input type="text" name="range-pv" id="range-pv" />
+                        <input type="text" name="range-pv" id="range-pv" value="@lpv.NgayPhongVan.Value.ToString("yyyy-MM-dd")" />
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="range-pv" class="col-sm-4 col-form-label">Vị trí tuyển dụng</label>
                     <div class="col-sm-8">
-                        <select class="form-control" id="vi-tri-td">
+                        <select class="form-control" id="vi-tri-td" value="@lpv.ViTriTuyenDungId">
                             @foreach (var item in viTriTuyenDung.data)
                             {
                                 <option value="@item.Id">@item.TenViTriTuyenDung</option>

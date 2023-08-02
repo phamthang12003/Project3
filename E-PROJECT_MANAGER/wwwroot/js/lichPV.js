@@ -86,7 +86,17 @@
                 eventClick: function (info) {
                     var id = info.event.id;
                     var startDate = info.event.start;
-                    LPV.OpenModalSave(startDate, id);
+                    var tenLich = info.event.title.split('\n')[0].replace("Lịch phỏng vấn ", ""); // Lấy tên lịch phỏng vấn từ title
+                    var thoiGianTuyenDung = info.event.extendedProps.thoiGianTuyenDung; // Lấy giá trị trường 'thoiGianTuyenDung'
+                    var viTriTuyenDungId = info.event.extendedProps.viTriTuyenDungId; // Lấy giá trị trường 'ViTriTuyenDungId'
+                    var ungVienId = info.event.extendedProps.ungVienId; // Lấy giá trị trường 'UngVienId'
+
+                    // Lấy thông tin ứng viên dựa trên ID của sự kiện
+                    $.get('/LichPhongVans/CreateOrUpdateView?id=' + id, function (candidateInfo) {
+                        // Điền thông tin vào modal
+                        LPV.OpenModalSave(startDate, id, candidateInfo, tenLich, viTriTuyenDungId, ungVienId, thoiGianTuyenDung);
+                    });
+                    LPV.OpenModalSave(startDate, id, candidateInfo, tenLich, viTriTuyenDungId, ungVienId, thoiGianTuyenDung);
 
                 },
                 select: function (info) {
@@ -136,13 +146,21 @@
             LPV.RegisterEvent();
         })
     },
-    OpenModalSave: function (startDate, id) {
+    OpenModalSave: function (startDate, id, candidateInfo, tenLich, viTriTuyenDungId, ungVienId, thoiGianTuyenDung) {
         $.get('/LichPhongVans/CreateOrUpdateView?id=' + id, function (response) {
             $('.modal').html('').html(response);
             $('.modal').modal('show');
             // Gán giá trị cho các trường dữ liệu
             var lichPhongVan = JSON.parse(response); // Phân tích phản hồi thành đối tượng JSON (nếu cần)
             $('#ten-lich').val(lichPhongVan.tenLich); // Gán giá trị cho trường 'ten-lich'
+            $('#vi-tri-td').val(lichPhongVan.ViTriTuyenDungId);
+            $('#thoi-gian-tuyen-dung').val(thoiGianTuyenDung); // Gán giá trị cho trường 'thoi-gian-tuyen-dung'
+            // Gán thông tin ứng viên vào các trường modal
+            //$('#candidate-name').val(candidateInfo.name);
+            //$('#candidate-position').val(candidateInfo.position);
+
+            //var ngayPV = moment(startDate).format('YYYY-MM-DD');
+            //$('#ngay-pv').val(ngayPV);
 
             var df_startDate = $('.modal-body').attr('data-start');
             var df_endDate = $('.modal-body').attr('data-end');

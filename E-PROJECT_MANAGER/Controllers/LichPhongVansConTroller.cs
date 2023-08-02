@@ -40,8 +40,11 @@ namespace E_PROJECT_MANAGER.Controllers
                 id = l.Id,
                 title = string.Format("Lịch phỏng vấn \nngày {0}", l.NgayPhongVan.Value.ToString("dd/MM")),
                 start = l.ThoiGianBatDau,
-                end = l.ThoiGianKetThuc
-            }).ToList();
+                end = l.ThoiGianKetThuc,
+				//tenLich = l.TenLich,
+				viTriTuyenDungId = l.ViTriTuyenDungId,
+				//thoiGianTuyenDung = l.ThoiGianTuyenDung
+			}).ToList();
             return Ok(events);
         }
 
@@ -72,6 +75,10 @@ namespace E_PROJECT_MANAGER.Controllers
         public async Task<IActionResult> CreateOrUpdateView(int id)
         {
             var lichPhongVan = await _context.LichPhongVans.FindAsync(id);
+            if(lichPhongVan == null)
+            {
+                lichPhongVan = new LichPhongVan();
+            }
             ViewBag.LichPhongVan = lichPhongVan;
             return PartialView(id);
         }
