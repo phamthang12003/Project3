@@ -1,0 +1,63 @@
+﻿@model ViTriTuyenDung
+@{
+    var pb = ViewBag.PhongBanID as SelectList;
+
+}
+
+<!-- Model Create Or Update -->
+<div class="modal fade bd-example-modal-lg" id="create-or-update-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Vị trí tuyển dụng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group row mb-1">
+                        <label for="ten-san-pham" class="col-sm-2 col-form-label">Tên Vị Trí Tuyển Dụng</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="ten-vi-tri-tuyen-dung" placeholder="Tên Vị Trí Tuyển Dụng" value="@Model.TenViTriTuyenDung">
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="form-group row mb-1">
+                        <label for="mo-ta-san-pham" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="title">@Model.Title</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="thong-so-ky-thuat" class="col-sm-2 col-form-label">Request</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" class="form-control" id="request">@Model.Request</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-1">
+                        <label for="avatar" class="col-sm-2 col-form-label">Number</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="number" value="@Model.Number">
+                        </div>
+                    </div>
+
+                     <div class="form-group row mb-1">
+                            <label for="PhongBanID" class="col-sm-2 col-form-label">Tên Phòng Ban</label>
+                            <select asp-for="PhongBanID" class="form-control"  asp-items="pb"></select>
+                     </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn-save-san-pham" sp-id="@(Model.Id)">Thêm </button>
+            </div>
+        </div>
+    </div>
+</div>
+

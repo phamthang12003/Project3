@@ -8,7 +8,7 @@ namespace E_PROJECT_MANAGER.Models
         public string? LoaiHoSo { get; set; }
         public string? LinkHoSo { get; set; }
 
-        //[ForeignKey("UngVienId")]
-        //public virtual UngVien GetUngVien { get; set; }
+        [ForeignKey("UngVienId")]
+        public virtual UngVien GetUngVien { get; set; }
     }
 }

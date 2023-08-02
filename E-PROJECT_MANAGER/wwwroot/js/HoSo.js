@@ -16,53 +16,37 @@
             var ungVienId = $('#ung-vien-id').val();
             var loaiHoSo = $('#loai-ho-so').val();
             var linkHoSo = $('#link-ho-so').val();
-            var diaChi = $('#dia-chi').val();
+            var UngVienId = $('#UngVienId').val();
             var id = $(this).attr('sp-id');
             //Xay dung Oject San pham
-            var sanPham = {
-                UngVienID: ungVienId,
+            var hoso = {
+                /*UngVienID: ungVienId,*/
                 LoaiHoSo: loaiHoSo,
                 LinkHoSo: linkHoSo,
-                DiaChi: diaChi,
+                UngVienId: parseInt(UngVienId),
                 Id: id
             }
-            SP.SaveSanPham(sanPham);
+            SP.SaveSanPham(hoso);
         })
         $('.btn-delete-san-pham').off('click').on('click', function () {
             var _id = $(this).attr('sp-id');
             SP.DeleteSanPham(_id);
         });
-        $('#export-excel').off('click').on('click', function () {
-            var exportActionURL = "/UngVien/ExportToExcel";
-            $.ajax({
-                url: exportActionURL,
-                type: "POST",
-                xhrFields: {
-                    responseType: 'blob'
-                },
-                success: function (data) {
-                    var blob = new Blob([data], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-                    var link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = "hoSoExcel.xlsx";
-                    link.click();
-                    window.URL.revokeObjectURL(link.href);
-                }
-            });
-        })
-    }, // Tat ca cac su kien dang ky vao day
+       
+    }, 
     LoadDataToDataTable: function () {
         $('#datatable').DataTable({
             "serverSide": true,
             "ajax": {
-                "url": "/HoSo/Filter",
+                "url": "/HoSo/ResposeDataTables",
                 "type": "POST"
             },
             "columns": [
                 { "data": "id", "name": "Id" },
-                { "data": "ungVienId", "name": "UngVienId" },
+                /*{ "data": "ungVienId", "name": "UngVienId" },*/
                 { "data": "loaiHoSo", "name": "LoaiHoSo" },
                 { "data": "linkHoSo", "name": "LinkHoSo" },
+                { "data": "getUngVien.tenUngVien", "name": "UngVien" },
                 {
                     "data": "id", "render": function (data) {
                         return `

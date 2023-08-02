@@ -3,6 +3,7 @@ using E_PROJECT_MANAGER.DataTransferObject;
 using E_PROJECT_MANAGER.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Net;
 
 namespace E_PROJECT_MANAGER.Repository
 {
@@ -13,7 +14,8 @@ namespace E_PROJECT_MANAGER.Repository
                                                             bool columnAsc = false,
                                                             int start = 1,
                                                             int length = 10,
-                                                            int draw = 0);
+                                                            int draw = 0,
+                                                            Expression<Func<T, object>>[] includeProperties = null);
 
         public T GetById(int id);
 
@@ -47,7 +49,7 @@ namespace E_PROJECT_MANAGER.Repository
             return result;
         }
 
-        public DataTableReposneDTO<T> Filter(Expression<Func<T, bool>> filter, string columnName = "Id", bool columnAsc = false, int start = 1, int length = 10, int draw = 0)
+        public DataTableReposneDTO<T> Filter(Expression<Func<T, bool>> filter, string columnName = "Id", bool columnAsc = false, int start = 1, int length = 10, int draw = 0, Expression<Func<T, object>>[] includeProperties = null)
         {
             var result = new DataTableReposneDTO<T>();
 
@@ -58,6 +60,15 @@ namespace E_PROJECT_MANAGER.Repository
             {
                 dataRows = dataRows.Where(filter);
             }
+            //Include
+            if(includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties)
+                {
+                    dataRows = dataRows.Include(includeProperty);
+                }
+            }
+            
 
             //Sap xep
             var propertyInfo = typeof(T).GetProperty(columnName);
@@ -130,14 +141,14 @@ namespace E_PROJECT_MANAGER.Repository
                 _dbSet.Add(entity);
                 _context.SaveChanges();
                 result.StatusCode = 200;
-                result.Message = "Them moi thanh cong!";
+                result.Message = "Thêm Mới Thành Công!";
             }
             if (id > 0)
             {
                 _dbSet.Update(entity);
                 _context.SaveChanges();
                 result.StatusCode = 200;
-                result.Message = "Cap nhat thanh cong!";
+                result.Message = "Cập nhật thành công!";
 
             }
 

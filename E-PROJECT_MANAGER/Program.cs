@@ -29,9 +29,13 @@ builder.Services.AddScoped<IPhongBanRepository, PhongBanRepository>();
 builder.Services.AddScoped<IQuanLyTrangThaiRepository, QuanLyTrangThaiRepository>();
 builder.Services.AddScoped<IQuanLyLoaiRepository, QuanLyLoaiRepository>();
 builder.Services.AddScoped<IHoSoRepository, HoSoRepository>();
+
 builder.Services.AddScoped<ILichPhongVanRepository, LichPhongVanRepository>();
 builder.Services.AddScoped<IViTriTuyenDungRepository, ViTriTuyenDungRepository>();
 
+
+builder.Services.AddScoped<IViTriTuyenDungRepository, ViTriTuyenDungRepository>();
+builder.Services.AddScoped<INhanVienPhuTrachTuyenDungRepository, NhanVienPhuTrachTuyenDungRespository>();
 
 builder.Services.AddControllersWithViews();
 
