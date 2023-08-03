@@ -14,8 +14,6 @@ namespace E_PROJECT_MANAGER.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-
-
         public LichPhongVansController(ApplicationDbContext context)
         {
             _context = context;
@@ -30,7 +28,6 @@ namespace E_PROJECT_MANAGER.Controllers
                           View(await _context.LichPhongVans.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.LichPhongVans'  is null.");
 
-
         }
 
         public IActionResult FindAllEvent()
@@ -38,7 +35,7 @@ namespace E_PROJECT_MANAGER.Controllers
             var events = _context.LichPhongVans.Select(l => new
             {
                 id = l.Id,
-                title = string.Format("Lịch phỏng vấn \nngày {0}", l.NgayPhongVan.Value.ToString("dd/MM")),
+                title = l.tenLich,
                 start = l.ThoiGianBatDau,
                 end = l.ThoiGianKetThuc,
 				//tenLich = l.TenLich,
@@ -51,6 +48,7 @@ namespace E_PROJECT_MANAGER.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(LichPhongVan lpv)
         {
+            
             if (lpv != null)
             {
                 if (lpv.Id == 0)
@@ -58,13 +56,13 @@ namespace E_PROJECT_MANAGER.Controllers
 
                     _context.LichPhongVans.Add(lpv);
                     _context.SaveChanges();
-                    return Ok("Them Lich thanh cong!");
+                    return Ok("Successfully added new!");
                 }
                 if (lpv.Id > 0)
                 {
                     _context.LichPhongVans.Update(lpv);
                     _context.SaveChanges();
-                    return Ok("Cap nhat thanh cong!");
+                    return Ok("Update successful!");
 
                 }
             }
@@ -75,13 +73,14 @@ namespace E_PROJECT_MANAGER.Controllers
         public async Task<IActionResult> CreateOrUpdateView(int id)
         {
             var lichPhongVan = await _context.LichPhongVans.FindAsync(id);
-            if(lichPhongVan == null)
+            if (lichPhongVan == null)
             {
                 lichPhongVan = new LichPhongVan();
             }
             ViewBag.LichPhongVan = lichPhongVan;
             return PartialView(id);
         }
+
 
         [HttpPost]
         public IActionResult UpdateEvent(int id, DateTime start, DateTime end)

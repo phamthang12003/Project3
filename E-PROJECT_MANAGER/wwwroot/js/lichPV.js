@@ -2,7 +2,7 @@
     Init: function () {
         LPV.DatePicker = null;
         LPV.DateRangePicker = null;
-        
+        LPV.FullCalendar = null;
         LPV.RegisterEvent();
         LPV.CreateCalendar();
         
@@ -13,16 +13,16 @@
             console.log(LPV.DatePicker);
             var ngayPV = LPV.DatePicker.startDate.format('YYYY-MM-DD');
             console.log(LPV.DateRangePicker);
-            var startDate = LPV.DateRangePicker.startDate.format('YYYY-MM-DD hh:mm:ss');
-            var endDate = LPV.DateRangePicker.endDate.format('YYYY-MM-DD hh:mm:ss');
+            var startDate = LPV.DateRangePicker.startDate.format('hh:mm:ss');
+            var endDate = LPV.DateRangePicker.endDate.format('hh:mm:ss');
             var viTriTD = parseInt($('#vi-tri-td').val());
             var ungVienId = 1;
             var params = {
                 tenLich: tenLich,
                 Id: $('.modal-body').attr('data-id'),
                 NgayPhongVan: ngayPV,
-                ThoiGianBatDau: startDate,
-                ThoiGianKetThuc: endDate,
+                ThoiGianBatDau: ngayPV + " " + startDate,
+                ThoiGianKetThuc: ngayPV + ' ' + endDate,
                 ViTriTuyenDungId: viTriTD,
                 UngVienId: ungVienId
             }
@@ -32,10 +32,9 @@
         })
     },
     CreateCalendar: function () {
-
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
+            LPV.FullCalendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 selectable: true,
                 headerToolbar: {
@@ -65,10 +64,10 @@
                         success: function () {
                             // Thực hiện các thay đổi hoặc xử lý dữ liệu theo ý muốn
 
-                            console.log('Cập nhật thành công');
+                            console.log('Update successful!');
                         },
                         error: function () {
-                            console.log('Có lỗi xảy ra khi cập nhật');
+                            console.log('An error occurred while updating!');
                         }
                     });
                 },
@@ -93,24 +92,22 @@
 
                     // Lấy thông tin ứng viên dựa trên ID của sự kiện
                     $.get('/LichPhongVans/CreateOrUpdateView?id=' + id, function (candidateInfo) {
+                        
                         // Điền thông tin vào modal
                         LPV.OpenModalSave(startDate, id, candidateInfo, tenLich, viTriTuyenDungId, ungVienId, thoiGianTuyenDung);
                     });
-                    LPV.OpenModalSave(startDate, id, candidateInfo, tenLich, viTriTuyenDungId, ungVienId, thoiGianTuyenDung);
+                    //LPV.OpenModalSave(startDate, id, candidateInfo, tenLich, viTriTuyenDungId, ungVienId, thoiGianTuyenDung);
 
                 },
                 select: function (info) {
-                    
                     LPV.OpenModalSave(info.start,0);
                     var start = moment(info.start);
-                    //console.log(start);
-                    
                     //LPV.CreateDateRangePicker(info.start);
                     LPV.RegisterEvent();
                 }
 
             });
-            calendar.render();
+            LPV.FullCalendar.render();
         });
     },
     CreateDatePicker: function (startDate, df_ngay, df_startDate, df_endDate) {
@@ -143,6 +140,15 @@
     Save: function (params) {
         $.post('/LichPhongVans/Save', params, function (response) {
             alert(response);
+            //$('#calendar').fullCalendar('removeEvents');
+            //$('#calendar').fullCalendar('refetchEvents');
+
+            //Dong modal
+            $('.modal').modal('hide');
+
+            //Reload lai lich
+            LPV.FullCalendar.refetchEvents();
+
             LPV.RegisterEvent();
         })
     },
@@ -151,9 +157,9 @@
             $('.modal').html('').html(response);
             $('.modal').modal('show');
             // Gán giá trị cho các trường dữ liệu
-            var lichPhongVan = JSON.parse(response); // Phân tích phản hồi thành đối tượng JSON (nếu cần)
-            $('#ten-lich').val(lichPhongVan.tenLich); // Gán giá trị cho trường 'ten-lich'
-            $('#vi-tri-td').val(lichPhongVan.ViTriTuyenDungId);
+            //var lichPhongVan = JSON.parse(response); // Phân tích phản hồi thành đối tượng JSON (nếu cần)
+            $('#ten-lich').val(tenLich); // Gán giá trị cho trường 'ten-lich'
+            $('#vi-tri-td').val(viTriTuyenDungId);
             $('#thoi-gian-tuyen-dung').val(thoiGianTuyenDung); // Gán giá trị cho trường 'thoi-gian-tuyen-dung'
             // Gán thông tin ứng viên vào các trường modal
             //$('#candidate-name').val(candidateInfo.name);
@@ -168,6 +174,7 @@
             LPV.CreateDatePicker(startDate,df_ngay, df_startDate, df_endDate);
             LPV.RegisterEvent();
         })
-    }
+    },
+    
 }
 LPV.Init();
