@@ -12,11 +12,11 @@ namespace E_PROJECT_MANAGER.Models
 
 
 
-        [ForeignKey("UngVienId")]
-        public virtual UngVien? GetUngVien { get; set; }
+        //[ForeignKey("UngVienId")]
+        //public virtual UngVien? GetUngVien { get; set; }
 
 
-		//[ForeignKey("ViTriTuyenDungId")]
-		//public virtual ViTriTuyenDung GetTriTuyenDung { get; set; }
-	}
+        [ForeignKey("ViTriTuyenDungId")]
+        public virtual ViTriTuyenDung GetTriTuyenDung { get; set; }
+    }
 }
