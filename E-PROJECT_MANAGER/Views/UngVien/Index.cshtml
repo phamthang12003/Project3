@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+
+
 <h1>Danh sach ung vien </h1>
 
 <div class="khoi-create">
@@ -16,12 +18,14 @@
     <thead>
         <tr>
             <th>STT</th>
-            @*<th>Giới tính</th>*@
+            @*<th>Giới Tính</th>*@
             <th>Tuổi</th>
             <th>Tên ứng viên</th>
             <th>Địa chỉ</th>
             <th>Vị trí ứng tuyển</th>
-            <th>Kinh nghiệm làm việc</th>
+            <th>Kinh nghiệm</th>
+            <th>Email</th>
+            <th>SĐT</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -32,53 +36,6 @@
 <div id="container-create-or-update-modal"></div>
 @section scripts{
     <script src="~/js/ungvien.js"></script>
-    <script>
-        //var TRACKING = {
-        //    Init: function{
-        //        TRACKING.RegisterEveneet();
-        //        TRACKING.LoadDatatb();
-        //    },
-        //    RegisterEveneet: function{
-
-        //    },
-        //    LoadDatatb: function{
-
-        //        $('#myDataTable').DataTable({
-        //            processing: true,
-        //            serverSide: true,
-        //            ajax: {
-        //                url: '/UngVien/Filter',
-        //                type: 'GET'
-        //            },
-        //            columns: [
-        //                    { data: 'id', name: 'Id' },
-        //                    { data: 'gioiTinh', name: 'GioiTinh' },
-        //                    { data: 'tuoi', name: 'Tuoi' },
-        //                    { data: 'tenUngVien', name: 'TenUngVien' },
-        //                    { data: 'diaChi', name: 'DiaChi' },
-        //                    { data: 'viTriUngTuyen', name: 'ViTriUngTuyen' },
-        //                    { data: 'kinhNghiemLamViec', name: 'KinhNghiemLamViec' },
-                      
-        //                    {
-        //                        data: null,
-        //                        render: function (data, type, row) {
-        //                            var updateLink = '<a href="/UngVien/Update/' + row.id + '">Update</a>';
-        //                            var deleteLink = '<a href="/UngVien/Delete/' + row.id + '">Delete</a>';
-        //                            return updateLink + " | " + deleteLink;
-        //                        }
-        //                    }
-        //                ]
-        //                    createRow: function (row, data, dataIndex) {
-        //                $(row).attr('data-id', data.id);
-        //            }
-        //        });
-
-        //    }
-        //}
-      
-        //TRACKING.Init();
-        
-    </script>
 }
 
 

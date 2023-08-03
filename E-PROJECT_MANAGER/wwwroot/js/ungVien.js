@@ -1,34 +1,4 @@
 ﻿
-//$(document).ready(function () {
-
-//    $('#example').DataTable({
-//        processing: true,
-//        serverSide: true,
-//        ajax: {
-//            url: "/UngVien/Filter",
-//            type: 'GET'
-//        },
-//        columns: [
-//            { data: "id" },
-//            { data: "gioiTinh" },
-//            { data: "tuoi" },
-//            { data: "tenUngVien" },
-//            { data: "diaChi" },
-//            { data: "viTriUngTuyen" },
-//            { data: "kinhNghiemLamViec" },
-//            {
-//                data: null,
-//                render: function (data, type, row) {
-//                    var updateLink = '<a href="/UngVien/Update/' + row.id + '" class="btn btn-warning">Update</a>';
-//                    var deleteLink = '<a href="/UngVien/Delete/' + row.id + '" class="btn btn-danger">Delete</a>';
-//                    return updateLink + " | " + deleteLink;
-//                },
-//            }
-//        ]
-//    });
-
-//});
-
 
 var SP = {
     Init: function () {
@@ -45,21 +15,26 @@ var SP = {
             SP.CreateOrUpdatePatialView(sp_id);
         })
         $('#btn-save-san-pham').off('click').on('click', function () {
-            //var gioiTinh = $('#gioi-tinh').val();
+            /*var gioiTinh = $('#gioi-tinh').val();*/
             var tuoi = $('#tuoi').val();
             var tenUngVien = $('#ten-ung-vien').val();
             var diaChi = $('#dia-chi').val();
-            var viTriUngTuyen = $('#vi-tri-ung-tuyen').val();
+            /*var viTriUngTuyen = $('#vi-tri-ung-tuyen').val();*/
+            var vttdId = $('#vttdId').val();
             var kinhNghiemLamViec = $('#kinh-nghiem-lam-viec').val();
+            var email = $('#email').val();
+            var phoneNumber = $('#phoneNumber').val();
             var id = $(this).attr('sp-id');
             //Xay dung Oject San pham
             var sanPham = {
-                //GioiTinh: gioiTinh,
+                /*GioiTinh: gioiTinh,*/
                 Tuoi: tuoi,
                 TenUngVien: tenUngVien,
                 DiaChi: diaChi,
-                ViTriUngTuyen: viTriUngTuyen,
+                VttdId: parseInt(vttdId),
                 KinhNghiemLamViec: kinhNghiemLamViec,
+                Email: email,
+                PhoneNumber: phoneNumber,
                 Id: id
             }
             SP.SaveSanPham(sanPham);
@@ -96,17 +71,23 @@ var SP = {
             },
             "columns": [
                 { "data": "id", "name": "Id" },
-                //{ "data": "gioiTinh", "name": "GioiTinh" },
+                /*{ "data": "gioiTinh", "name": "GioiTinh" },*/
                 { "data": "tuoi", "name": "Tuoi" },
                 { "data": "tenUngVien", "name": "TenUngVien"},
                 {
                     "data": "diaChi", "name": "DiaChi"
                 },
                 {
-                    "data": "viTriUngTuyen", "name": "ViTriUngTuyen"
+                    "data": "getViTriTuyenDung.tenViTriTuyenDung", "name": "ViTriTuyenDung"
                 },
                 {
                     "data": "kinhNghiemLamViec", "name": "KinhNghiemLamViec"
+                },
+                {
+                    "data": "email", "name": "Email"
+                },
+                {
+                    "data": "phoneNumber", "name": "PhoneNumber"
                 },
                 {
                     "data": "id", "render": function (data) {

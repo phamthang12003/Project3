@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace E_PROJECT_MANAGER.Controllers
 {
@@ -13,11 +16,12 @@ namespace E_PROJECT_MANAGER.Controllers
     public class UngVienController : BaseController<UngVien>
     {
         private IUngVienRepository _ungVienRepository;
-
-        public UngVienController(IUngVienRepository ungVienRepository, ApplicationDbContext applicationDbContext, IBaseRepository<UngVien> baseRepository)
-                    : base(baseRepository, applicationDbContext)
+        public ApplicationDbContext _dbContext;
+        public UngVienController(IUngVienRepository ungVienRepository, ApplicationDbContext dbContext, IBaseRepository<UngVien> baseRepository)
+                    : base(baseRepository, dbContext)
         {
             _ungVienRepository = ungVienRepository;
+            _dbContext = dbContext;
         }
 
        
@@ -27,6 +31,8 @@ namespace E_PROJECT_MANAGER.Controllers
         
         public IActionResult ViewCreateOrUpdate(int id)
         {
+            ViewBag.vttdId = new SelectList(_dbContext.ViTriTuyenDungs.ToList(), "Id", "TenViTriTuyenDung");
+
             var model = new UngVien();
             
 
@@ -90,7 +96,9 @@ namespace E_PROJECT_MANAGER.Controllers
             }
             var start = postModel.start;
             var length = postModel.length;
-
+            Expression<Func<UngVien, object>>[] includeProperties = new Expression<Func<UngVien, object>>[] {
+                        x => x.GetViTriTuyenDung
+                    };
             //Goi vao Repository va dien cac tham so phu hop
             var result = _ungVienRepository.Filter(
                 r => (string.IsNullOrEmpty(search)) || (
@@ -102,7 +110,8 @@ namespace E_PROJECT_MANAGER.Controllers
                 columnAsc,
                 start,
                 length,
-                postModel.draw
+                postModel.draw,
+                includeProperties
                 );
             return Ok(result);
         }
